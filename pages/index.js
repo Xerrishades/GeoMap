@@ -1,12 +1,18 @@
 import Link from 'next/link';
+import Heead from 'next/head';
+import Header from '../components/Header';
+import Layout from '../components/layout';
+import nav from '../components/nav';
 
-const Index = () => (
-  <div>
-    <Link href="./about">
-      <a>About Page</a>
-    </Link>
-    <p>Hello Next.js</p>
-  </div>
-);
+export default function Index() {
+    return (
+        <Nav>
+            <p>Teeesting</p>
+        </Nav>
 
-export default Index;
+        <Header>
+            <a> testing header</a>
+        </Header>
+
+    );
+  }
