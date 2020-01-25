@@ -4,6 +4,7 @@ const linkStyle = {
   marginRight: 20
 };
 
+/* This hold the link/route for the app */
 const Header = () => (
   <div>
     <Link href="/">

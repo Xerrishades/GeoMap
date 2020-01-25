@@ -3,8 +3,10 @@ import head from 'next/head';
 
 export default function About() {
   return (
-    <Layout>
-      <p>This is the about page</p>
-    </Layout>
+    <div> {/* Main Div */}
+      <Layout />
+      <title> About us</title>
+      <h1> About Us </h1>
+    </div> /* End of Main Div */
   );
 }
