@@ -7,6 +7,8 @@ import Radar from 'radar-sdk-js';
 function app () {
     /* initialize Radar Connection */
     Radar.initialize(prj_test_pk_2bdadc849b1f66b25824b05c8b1cdd7ac4103681);
+    Radar.setUserId(this.state.userId);
+    Radar.requestPermissions(true);
 
     Radar.trackOnce(function(status, location, user, events) {
         if (status === Radar.STATUS.SUCCESS) {
@@ -15,10 +17,8 @@ function app () {
           } else {
             Radar.on('error', (err) => {
                 // do something with err
-                console.log(EvalError);
-          },
-        });
-    }
+              });
+          }
+        }
+      });   
 }
-
-export default app;
