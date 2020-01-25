@@ -1,4 +1,5 @@
 import Layout from '../components/layout';
+import head from 'next/head';
 
 export default function About() {
   return (

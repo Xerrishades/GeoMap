@@ -1,18 +1,19 @@
 import Link from 'next/link';
-import Heead from 'next/head';
+import Head from 'next/head';
 import Header from '../components/Header';
 import Layout from '../components/layout';
-import nav from '../components/nav';
 
 export default function Index() {
     return (
-        <Nav>
-            <p>Teeesting</p>
-        </Nav>
-
-        <Header>
-            <a> testing header</a>
-        </Header>
+        <div>
+            {/* /* for the navbar */ }
+            <Layout /> 
+                <head>
+                    <title>Home</title>
+                </head>
+            <h1>About the app</h1>
+            <p>GeoHeatMap or GHM is an app that can trace heat signature through IoT devices and display geogrpahic location</p>
+        </div>
 
     );
   }

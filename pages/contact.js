@@ -5,7 +5,6 @@ export default function Index() {
     return (
       <div>
         <Layout>
-            <title>Contact Us</title>
             <p>Contact us here @</p>
         </Layout>
       </div>
