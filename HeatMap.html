@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+     
+	 
+      var map, infoWindow, heatmap;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 0, lng: 90},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+			
+			  var i = 0;
+			  var j = 0; 
+			  var speed = .00001;
+			  
+			  var input = [[i],[pos.lat, pos.lng]];
+			  
+			  window.addEventListener("keydown", myFunction);
+			 
+			  
+			  function myFunction(event) {
+			  
+			  input[[i][0]] = pos.lat;
+			  input[[i][1]] = pos.lng;
+			  
+			  
+			  var key = event.keyCode;
+			  
+			  
+			  
+			  if (key == 87)
+			  {
+				pos.lat += speed;
+			  }
+			  
+			  else if  (key == 68)
+			  {
+				pos.lng += speed;
+			  }
+			  
+			  else if (key == 83)
+			  {
+				pos.lat -= speed;
+			  }
+			  
+			  else if (key == 65)
+			  {
+				pos.lng -= speed;
+			  }
+			  
+			  			  
+			  else if (key == 13)
+				{
+				  heatmap = new google.maps.visualization.HeatmapLayer({
+                  data: getPoints(),
+                  map: map
+				});
+				
+				speed = 0;
+			  }
+				
+				infoWindow.setPosition(pos);
+				infoWindow.setContent(pos.lat + " " + pos.lng);
+				infoWindow.open(map);
+				map.setCenter(pos);
+				map.setZoom(19);
+				
+				i++;
+				
+				function changeRadius() {
+					heatmap.set('radius', heatmap.get('radius') ? null : 1);
+				}
+
+				
+				function getPoints() {
+				 return[
+					  
+					new google.maps.LatLng(input[[0][0]], input[[0][1]]),
+					new google.maps.LatLng(input[[1][0]], input[[1][1]]),
+					new google.maps.LatLng(input[[2][0]], input[[2][1]]),
+					new google.maps.LatLng(input[[3][0]], input[[3][1]]),
+					new google.maps.LatLng(input[[4][0]], input[[4][1]]),
+					new google.maps.LatLng(input[[5][0]], input[[5][1]]),
+					new google.maps.LatLng(input[[6][0]], input[[6][1]]),
+					new google.maps.LatLng(input[[7][0]], input[[7][1]]),
+					new google.maps.LatLng(input[[8][0]], input[[8][1]]),
+					new google.maps.LatLng(input[[9][0]], input[[9][1]]),
+					new google.maps.LatLng(input[[10][0]], input[[10][1]]),
+					new google.maps.LatLng(input[[11][0]], input[[11][1]]),
+					new google.maps.LatLng(input[[12][0]], input[[12][1]]),
+					new google.maps.LatLng(input[[13][0]], input[[13][1]]),
+					new google.maps.LatLng(input[[14][0]], input[[14][1]]),
+					new google.maps.LatLng(input[[15][0]], input[[15][1]]),
+					new google.maps.LatLng(input[[16][0]], input[[16][1]]),
+					new google.maps.LatLng(input[[17][0]], input[[17][1]]),
+					new google.maps.LatLng(input[[18][0]], input[[18][1]]),
+					new google.maps.LatLng(input[[19][0]], input[[19][1]]),
+					new google.maps.LatLng(input[[20][0]], input[[20][1]]),
+					new google.maps.LatLng(input[[21][0]], input[[21][1]]),
+					new google.maps.LatLng(input[[22][0]], input[[22][1]]),
+					new google.maps.LatLng(input[[23][0]], input[[23][1]]),
+					new google.maps.LatLng(input[[24][0]], input[[24][1]]),
+					new google.maps.LatLng(input[[25][0]], input[[25][1]]),
+					new google.maps.LatLng(input[[26][0]], input[[26][1]]),
+					new google.maps.LatLng(input[[27][0]], input[[27][1]]),
+					new google.maps.LatLng(input[[28][0]], input[[28][1]]),
+					new google.maps.LatLng(input[[29][0]], input[[29][1]]),
+					new google.maps.LatLng(input[[30][0]], input[[30][1]]),
+					new google.maps.LatLng(input[[31][0]], input[[31][1]]),
+					new google.maps.LatLng(input[[32][0]], input[[32][1]]),
+					new google.maps.LatLng(input[[33][0]], input[[33][1]]),
+					new google.maps.LatLng(input[[34][0]], input[[34][1]]),
+					new google.maps.LatLng(input[[35][0]], input[[35][1]]),
+					new google.maps.LatLng(input[[36][0]], input[[36][1]]),
+					new google.maps.LatLng(input[[37][0]], input[[37][1]]),
+					new google.maps.LatLng(input[[38][0]], input[[38][1]]),
+					new google.maps.LatLng(input[[39][0]], input[[39][1]]),
+					new google.maps.LatLng(input[[40][0]], input[[40][1]]),
+					new google.maps.LatLng(input[[41][0]], input[[41][1]]),
+					new google.maps.LatLng(input[[42][0]], input[[42][1]]),
+					new google.maps.LatLng(input[[43][0]], input[[43][1]]),
+					new google.maps.LatLng(input[[44][0]], input[[44][1]]),
+					new google.maps.LatLng(input[[45][0]], input[[45][1]]),
+					new google.maps.LatLng(input[[46][0]], input[[46][1]]),
+					new google.maps.LatLng(input[[47][0]], input[[47][1]]),
+					new google.maps.LatLng(input[[48][0]], input[[48][1]]),
+					new google.maps.LatLng(input[[49][0]], input[[49][1]])
+					];
+				
+					}
+				
+				};
+				
+			  }, function() {
+				handleLocationError(true, infoWindow, map.getCenter());
+
+		  });
+		  
+		  
+		  
+	
+		  
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAzixJflLRi8g-PZgcTMqZP822QWibrH0&libraries=visualization
+&callback=initMap">
+    </script>
+  </body>
+</html>
